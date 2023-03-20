@@ -29,7 +29,7 @@ data class ArticlesItem(
 	val description: String? = null,
 
 	@field:SerializedName("source")
-	val source: Source? = null,
+	val source: SourcesItem? = null,
 
 	@field:SerializedName("title")
 	val title: String? = null,
@@ -41,11 +41,3 @@ data class ArticlesItem(
 	val content: String? = null
 )
 
-data class Source(
-
-	@field:SerializedName("name")
-	val name: String? = null,
-
-	@field:SerializedName("id")
-	val id: String? = null
-)
