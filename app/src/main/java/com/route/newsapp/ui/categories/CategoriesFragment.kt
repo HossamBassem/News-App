@@ -1,14 +1,13 @@
-package com.route.newsapp.ui
+package com.route.newsapp.ui.categories
 
-import android.graphics.Color.blue
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Adapter
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import com.route.newsapp.R
+import com.route.newsapp.ui.Category
 
 class categoriesFragment:Fragment() {
     override fun onCreateView(
@@ -46,12 +45,12 @@ class categoriesFragment:Fragment() {
     )
 
 lateinit var recyclerView:RecyclerView
-val Adapter=CategoriesAdapter(categories)
+val Adapter= CategoriesAdapter(categories)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initRecyclerView()
     }
-    var onCategoryClickListner:OnCategoryClickListner?=null
+    var onCategoryClickListner: OnCategoryClickListner?=null
     interface OnCategoryClickListner{
      fun   onCategoryClick(category: Category)
     }
@@ -59,7 +58,7 @@ val Adapter=CategoriesAdapter(categories)
     private fun initRecyclerView() {
         recyclerView=requireView().findViewById(R.id.recycler_view)
         recyclerView.adapter=Adapter
-        Adapter.onItemClickListner=object :CategoriesAdapter.OnItemClickListner{
+        Adapter.onItemClickListner=object : CategoriesAdapter.OnItemClickListner {
             override fun onItemClick(pos: Int, item: Category) {
                onCategoryClickListner?.onCategoryClick(category = item)
             }

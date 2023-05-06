@@ -1,4 +1,4 @@
-package com.route.newsapp.ui
+package com.route.newsapp.ui.categories
 
 import android.os.Build
 import android.view.LayoutInflater
@@ -11,6 +11,7 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.card.MaterialCardView
 import com.route.newsapp.R
+import com.route.newsapp.ui.Category
 
 class CategoriesAdapter(val categories:List<Category>) :RecyclerView.Adapter<CategoriesAdapter.ViewHolder>() {
 
@@ -33,10 +34,10 @@ class CategoriesAdapter(val categories:List<Category>) :RecyclerView.Adapter<Cat
         return isRightSided;
 
     }
-    var onItemClickListner:OnItemClickListner?=null
+    var onItemClickListner: OnItemClickListner?=null
     interface OnItemClickListner{
 
-        fun onItemClick(pos:Int,item:Category)
+        fun onItemClick(pos:Int,item: Category)
     }
 
 

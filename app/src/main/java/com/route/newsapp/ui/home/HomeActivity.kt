@@ -3,27 +3,24 @@ package com.route.newsapp
 import android.os.Bundle
 import android.view.MenuItem
 import android.view.View
-import android.widget.ImageView
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.Toolbar
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
-import com.google.android.material.appbar.AppBarLayout
 import com.google.android.material.navigation.NavigationView
 import com.route.newsapp.ui.Category
-import com.route.newsapp.ui.NewsFragment
+import com.route.newsapp.ui.news.NewsFragment
 import com.route.newsapp.ui.SettingsFragment
-import com.route.newsapp.ui.categoriesFragment
+import com.route.newsapp.ui.categories.categoriesFragment
 
-//import com.route.newsapp.ui.NewsFragment
+//import com.route.newsapp.ui.news.NewsFragment
 //import com.route.newappc35fri.ui.SettingsFragment
 
 class HomeActivity : AppCompatActivity() {
     private lateinit var drawerLayout: DrawerLayout
     private lateinit var navigationView: NavigationView
     private lateinit var toggle: ActionBarDrawerToggle
-    val categoriesFragment=com.route.newsapp.ui.categoriesFragment()
+    val categoriesFragment= categoriesFragment()
    val settingsFragment=SettingsFragment()
 
     lateinit var settings: View
@@ -85,7 +82,7 @@ class HomeActivity : AppCompatActivity() {
 
 
     pushFragment(categoriesFragment,true)
-        categoriesFragment.onCategoryClickListner=object :categoriesFragment.OnCategoryClickListner{
+        categoriesFragment.onCategoryClickListner=object : categoriesFragment.OnCategoryClickListner{
             override fun onCategoryClick(category: Category) {
                 pushFragment(NewsFragment(),true)
             }
